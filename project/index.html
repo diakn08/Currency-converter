@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="js/style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <div class="converter-wrapper">
+            <header>
+                <h1>Currency Converter</h1>
+                <p class="subtitle">Check live rates, set rate alerts, receive notifications and more.</p>
+            </header>
+        
+        <div class="converter-card">
+            <!-- Amount Section -->
+            <div class="input-section">
+                <label class="section-label">Amount</label>
+                <div class="currency-box">
+                    <div class="currency-header">
+                        <div class="currency-selector">
+                            <span class="currency-flag" id="from-flag">
+                                <img src="https://flagcdn.com/w80/sg.png" alt="SGD">
+                            </span>
+                            <div class="currency-select-wrapper">
+                                <select id="from-currency" class="currency-dropdown">
+                                    <option value="SGD">SGD</option>
+                                </select>
+                                <div class="custom-arrow">⌄</div>
+                            </div>
+                        </div>
+                        <div class="amount-display">
+                            <input type="text" id="amount" value="1,000.00" class="amount-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Swap Button with Lines - ТОЧНО КАК В ШАБЛОНЕ -->
+<div class="swap-container">
+    <div class="line-left"></div>
+    <button id="swap-currencies" class="swap-btn">
+        <div class="swap-btn-inner">
+            <div class="swap-btn-arrow up">↑</div>
+            <div class="swap-btn-arrow down">↓</div>
+        </div>
+    </button>
+    <div class="line-right"></div>
+</div>
+
+            <!-- Converted Amount Section -->
+            <div class="input-section">
+                <label class="section-label">Converted Amount</label>
+                <div class="currency-box">
+                    <div class="currency-header">
+                        <div class="currency-selector">
+                            <span class="currency-flag" id="to-flag">
+                                <img src="https://flagcdn.com/w80/us.png" alt="USD">
+                            </span>
+                            <div class="currency-select-wrapper">
+                                <select id="to-currency" class="currency-dropdown">
+                                    <option value="USD">USD</option>
+                                </select>
+                                <div class="custom-arrow">⌄</div>
+                            </div>
+                        </div>
+                        <div class="amount-display">
+                            <input type="text" id="converted-amount" value="736.70" class="amount-input" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exchange Rate - Outside Card -->
+        <div class="exchange-rate-section">
+            <p class="rate-label">Indicative Exchange Rate</p>
+            <p id="rate-info" class="rate-value">1 SGD = 0.7367 USD</p>
+        </div>
+        <script src="js/script.js"></script>
+
+    </div>
+    </body>
+</html>

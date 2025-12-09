@@ -1,0 +1,1063 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f9ff 0%, #ffffff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 24px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+header h1 {
+    font-size: 44px;
+    font-weight: 700;
+    color: #15284b;
+    margin-bottom: 14px;
+    letter-spacing: -0.8px;
+    line-height: 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 320px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    opacity: 0.95;
+}
+
+.converter-card {
+    background: white;
+    border-radius: 28px;
+    padding: 44px 36px;
+    box-shadow: 
+        0 10px 30px rgba(21, 40, 75, 0.08),
+        0 0 0 1px rgba(21, 40, 75, 0.05);
+    margin-bottom: 32px;
+    border: 1px solid rgba(215, 216, 217, 0.5);
+}
+
+.input-section {
+    margin-bottom: 0;
+}
+
+.section-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 16px;
+    letter-spacing: 0.1px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.currency-box {
+    background: transparent;
+    padding: 0;
+}
+
+.currency-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.currency-selector {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+    min-width: 140px;
+}
+
+.currency-flag {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f8fafc;
+    flex-shrink: 0;
+    border: 1.5px solid #e5e7eb;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+.currency-flag img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.currency-select-wrapper {
+    position: relative;
+    display: inline-block;
+    min-width: 80px;
+}
+
+.currency-dropdown {
+    font-size: 23px;
+    font-weight: 700;
+    color: #15284b;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    padding-right: 24px;
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    letter-spacing: -0.2px;
+    line-height: 1;
+    height: 32px;
+}
+
+.custom-arrow {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #15284b;
+    font-size: 14px;
+    font-weight: 600;
+    pointer-events: none;
+    opacity: 0.7;
+    line-height: 1;
+}
+
+.amount-display {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.amount-input {
+    font-size: 34px;
+    font-weight: 700;
+    color: #111827;
+    text-align: right;
+    border: none;
+    background: #f8fafc;
+    outline: none;
+    width: 100%;
+    min-width: 180px;
+    padding: 16px 20px;
+    border-radius: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    letter-spacing: -0.5px;
+    font-feature-settings: "tnum";
+}
+
+.amount-input:focus {
+    background: white;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.amount-input:read-only {
+    color: #111827;
+    background: #f8fafc;
+    cursor: default;
+    opacity: 1;
+}
+
+/* Swap button container - ТОЧНО КАК В ШАБЛОНЕ */
+.swap-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0;
+    position: relative;
+}
+
+.line-left, .line-right {
+    flex: 1;
+    height: 1.2px;
+    background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+}
+
+.swap-btn {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #15284b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 22px;
+    box-shadow: 
+        0 4px 14px rgba(21, 40, 75, 0.3),
+        0 0 0 1px rgba(21, 40, 75, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.swap-btn:hover {
+    background: #0d1a35;
+    transform: rotate(180deg);
+    box-shadow: 
+        0 6px 20px rgba(21, 40, 75, 0.4),
+        0 0 0 1px rgba(21, 40, 75, 0.15);
+}
+
+.swap-btn:active {
+    transform: rotate(180deg) scale(0.95);
+}
+
+.swap-arrow {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 0.8;
+    color: white;
+}
+
+.swap-arrow.up {
+    margin-bottom: 2px;
+}
+
+.swap-arrow.down {
+    margin-top: 2px;
+}
+
+/* Exchange rate section */
+.exchange-rate-section {
+    text-align: left;
+    padding: 0 10px;
+}
+
+.rate-label {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    opacity: 0.9;
+}
+
+.rate-value {
+    font-size: 21px;
+    color: #111827;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+/* Laptop/Desktop */
+@media (min-width: 1024px) {
+    body {
+        padding: 80px 40px;
+    }
+    
+    .container {
+        max-width: 450px;
+    }
+    
+    .converter-card {
+        padding: 48px 40px;
+    }
+    
+    .amount-input {
+        min-width: 200px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    body {
+        padding: 40px 20px;
+    }
+    
+    .container {
+        max-width: 440px;
+    }
+    
+    .converter-card {
+        padding: 40px 32px;
+    }
+    
+    header h1 {
+        font-size: 40px;
+    }
+    
+    .subtitle {
+        font-size: 16px;
+        max-width: 300px;
+    }
+    
+    .amount-input {
+        font-size: 32px;
+        min-width: 160px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    body {
+        padding: 40px 16px;
+        align-items: flex-start;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .converter-card {
+        padding: 40px 28px;
+        border-radius: 24px;
+        margin-bottom: 36px;
+    }
+
+    header {
+        margin-bottom: 40px;
+    }
+
+    header h1 {
+        font-size: 36px;
+        margin-bottom: 12px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        max-width: 280px;
+        line-height: 1.4;
+    }
+
+    .currency-header {
+        gap: 20px;
+    }
+
+    .amount-input {
+        font-size: 30px;
+        min-width: 150px;
+        padding: 16px 18px;
+    }
+
+    .currency-dropdown {
+        font-size: 22px;
+    }
+
+    .currency-flag {
+        width: 50px;
+        height: 50px;
+    }
+
+    .currency-selector {
+        min-width: 130px;
+        gap: 12px;
+    }
+
+    .section-label {
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+
+    .swap-btn {
+        width: 50px;
+        height: 50px;
+        margin: 0 20px;
+    }
+
+    .swap-arrow {
+        font-size: 12px;
+    }
+
+    .rate-value {
+        font-size: 20px;
+    }
+
+    .rate-label {
+        font-size: 13px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 380px) {
+    body {
+        padding: 32px 12px;
+    }
+
+    .converter-card {
+        padding: 36px 24px;
+        border-radius: 22px;
+        margin-bottom: 32px;
+    }
+
+    header {
+        margin-bottom: 36px;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+        max-width: 260px;
+    }
+
+    .amount-input {
+        font-size: 28px;
+        min-width: 140px;
+        padding: 14px 16px;
+    }
+
+    .currency-dropdown {
+        font-size: 21px;
+    }
+
+    .currency-flag {
+        width: 48px;
+        height: 48px;
+    }
+
+    .swap-btn {
+        width: 48px;
+        height: 48px;
+        margin: 0 18px;
+    }
+
+    .swap-arrow {
+        font-size: 11px;
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 320px) {
+    body {
+        padding: 28px 10px;
+    }
+
+    .converter-card {
+        padding: 32px 20px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        max-width: 240px;
+    }
+
+    .currency-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .amount-display {
+        width: 100%;
+    }
+    
+    .amount-input {
+        font-size: 28px;
+        min-width: 100%;
+        text-align: left;
+    }
+    
+    .swap-container {
+        margin: 24px 0;
+    }
+}* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f9ff 0%, #ffffff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 24px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+header h1 {
+    font-size: 44px;
+    font-weight: 700;
+    color: #15284b;
+    margin-bottom: 14px;
+    letter-spacing: -0.8px;
+    line-height: 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 320px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    opacity: 0.95;
+}
+
+.converter-card {
+    background: white;
+    border-radius: 28px;
+    padding: 44px 36px;
+    box-shadow: 
+        0 10px 30px rgba(21, 40, 75, 0.08),
+        0 0 0 1px rgba(21, 40, 75, 0.05);
+    margin-bottom: 32px;
+    border: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.input-section {
+    margin-bottom: 0;
+}
+
+.section-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 16px;
+    letter-spacing: 0.1px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.currency-box {
+    background: transparent;
+    padding: 0;
+}
+
+.currency-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.currency-selector {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+    min-width: 140px;
+}
+
+.currency-flag {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f8fafc;
+    flex-shrink: 0;
+    border: 1.5px solid #e5e7eb;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+.currency-flag img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.currency-select-wrapper {
+    position: relative;
+    display: inline-block;
+    min-width: 80px;
+}
+
+.currency-dropdown {
+    font-size: 23px;
+    font-weight: 700;
+    color: #15284b;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    padding-right: 24px;
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    letter-spacing: -0.2px;
+    line-height: 1;
+    height: 32px;
+}
+
+.custom-arrow {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #15284b;
+    font-size: 16px; /* Увеличено для лучшей видимости */
+    font-weight: 600;
+    pointer-events: none;
+    opacity: 0.6; /* Слегка прозрачный как в шаблоне */
+    line-height: 1;
+}
+
+.amount-display {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.amount-input {
+    font-size: 34px;
+    font-weight: 700;
+    color: #111827;
+    text-align: right;
+    border: none;
+    background: #f8fafc !important; /* СЕРЫЙ ФОН как в шаблоне */
+    outline: none;
+    width: 100%;
+    min-width: 180px;
+    padding: 16px 20px;
+    border-radius: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    letter-spacing: -0.5px;
+    font-feature-settings: "tnum";
+}
+
+.amount-input:focus {
+    background: white !important; /* Белый только при фокусе */
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.amount-input:read-only {
+    color: #111827;
+    background: #f8fafc !important; /* СЕРЫЙ ФОН для второго поля */
+    cursor: default;
+    opacity: 1;
+}
+
+/* Swap button container - ТОЧНО КАК В ШАБЛОНЕ */
+.swap-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0;
+    position: relative;
+}
+
+.line-left, .line-right {
+    flex: 1;
+    height: 1.2px;
+    background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+}
+
+.swap-btn {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #15284b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 22px;
+    box-shadow: 
+        0 4px 14px rgba(21, 40, 75, 0.3),
+        0 0 0 1px rgba(21, 40, 75, 0.1);
+    position: relative;
+}
+
+.swap-btn:hover {
+    background: #0d1a35;
+    transform: rotate(180deg);
+    box-shadow: 
+        0 6px 20px rgba(21, 40, 75, 0.4),
+        0 0 0 1px rgba(21, 40, 75, 0.15);
+}
+
+.swap-btn:active {
+    transform: rotate(180deg) scale(0.95);
+}
+
+.swap-btn-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.swap-btn-arrow {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 0.8;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.swap-btn-arrow.up {
+    margin-bottom: 1px;
+}
+
+.swap-btn-arrow.down {
+    margin-top: 1px;
+}
+
+/* Exchange rate section */
+.exchange-rate-section {
+    text-align: left;
+    padding: 0 10px;
+}
+
+.rate-label {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    opacity: 0.9;
+}
+
+.rate-value {
+    font-size: 21px;
+    color: #111827;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+/* Laptop/Desktop */
+@media (min-width: 1024px) {
+    body {
+        padding: 80px 40px;
+    }
+    
+    .container {
+        max-width: 450px;
+    }
+    
+    .converter-card {
+        padding: 48px 40px;
+    }
+    
+    .amount-input {
+        min-width: 200px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    body {
+        padding: 40px 20px;
+    }
+    
+    .container {
+        max-width: 440px;
+    }
+    
+    .converter-card {
+        padding: 40px 32px;
+    }
+    
+    header h1 {
+        font-size: 40px;
+    }
+    
+    .subtitle {
+        font-size: 16px;
+        max-width: 300px;
+    }
+    
+    .amount-input {
+        font-size: 32px;
+        min-width: 160px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    body {
+        padding: 40px 16px;
+        align-items: flex-start;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .converter-card {
+        padding: 40px 28px;
+        border-radius: 24px;
+        margin-bottom: 36px;
+    }
+
+    header {
+        margin-bottom: 40px;
+    }
+
+    header h1 {
+        font-size: 36px;
+        margin-bottom: 12px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        max-width: 280px;
+        line-height: 1.4;
+    }
+
+    .currency-header {
+        gap: 20px;
+    }
+
+    .amount-input {
+        font-size: 30px;
+        min-width: 150px;
+        padding: 16px 18px;
+        background: #f8fafc !important;
+    }
+
+    .currency-dropdown {
+        font-size: 22px;
+    }
+
+    .currency-flag {
+        width: 50px;
+        height: 50px;
+    }
+
+    .currency-selector {
+        min-width: 130px;
+        gap: 12px;
+    }
+
+    .section-label {
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+
+    .swap-btn {
+        width: 50px;
+        height: 50px;
+        margin: 0 20px;
+    }
+
+    .swap-btn-arrow {
+        font-size: 12px;
+    }
+
+    .rate-value {
+        font-size: 20px;
+    }
+
+    .rate-label {
+        font-size: 13px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 380px) {
+    body {
+        padding: 32px 12px;
+    }
+
+    .converter-card {
+        padding: 36px 24px;
+        border-radius: 22px;
+        margin-bottom: 32px;
+    }
+
+    header {
+        margin-bottom: 36px;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+        max-width: 260px;
+    }
+
+    .amount-input {
+        font-size: 28px;
+        min-width: 140px;
+        padding: 14px 16px;
+        background: #f8fafc !important;
+    }
+
+    .currency-dropdown {
+        font-size: 21px;
+    }
+
+    .currency-flag {
+        width: 48px;
+        height: 48px;
+    }
+
+    .swap-btn {
+        width: 48px;
+        height: 48px;
+        margin: 0 18px;
+    }
+
+    .swap-btn-arrow {
+        font-size: 11px;
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 320px) {
+    body {
+        padding: 28px 10px;
+    }
+
+    .converter-card {
+        padding: 32px 20px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        max-width: 240px;
+    }
+
+    .currency-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .amount-display {
+        width: 100%;
+    }
+    
+    .amount-input {
+        font-size: 28px;
+        min-width: 100%;
+        text-align: left;
+        background: #f8fafc !important;
+    }
+    
+    .swap-container {
+        margin: 24px 0;
+    }
+}
+/* ===== Animated swap arrows (как в Currency Converter) ===== */
+
+.swap-arrows {
+    position: relative;
+    width: 16px;
+    height: 26px;
+}
+
+.swap-arrow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0;
+}
+
+/* ↑ */
+.swap-arrow.up {
+    top: 0;
+    animation: swapUp 1.4s ease-in-out infinite;
+}
+
+/* ↓ */
+.swap-arrow.down {
+    bottom: 0;
+    animation: swapDown 1.4s ease-in-out infinite;
+}
+
+@keyframes swapUp {
+    0% {
+        transform: translate(-50%, 8px);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -8px);
+        opacity: 0;
+    }
+}
+
+@keyframes swapDown {
+    0% {
+        transform: translate(-50%, -8px);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, 8px);
+        opacity: 0;
+    }
+}
