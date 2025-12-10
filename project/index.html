@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currency Converter</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2315284b;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%231e3a5f;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23grad)'/%3E%3Ctext x='50' y='38' font-family='Arial, sans-serif' font-size='32' font-weight='bold' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3Cpath d='M25 55 L50 55 M50 48 L50 62' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M50 55 L75 55 M62 48 L62 62' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M54 55 L58 51 M54 55 L58 59' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M46 55 L42 51 M46 55 L42 59' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="js/style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
     <div class="container">
@@ -39,17 +39,17 @@
                 </div>
             </div>
 
-            <!-- Swap Button with Lines - ТОЧНО КАК В ШАБЛОНЕ -->
-<div class="swap-container">
-    <div class="line-left"></div>
-    <button id="swap-currencies" class="swap-btn">
-        <div class="swap-btn-inner">
-            <div class="swap-btn-arrow up">↑</div>
-            <div class="swap-btn-arrow down">↓</div>
-        </div>
-    </button>
-    <div class="line-right"></div>
-</div>
+            <!-- Swap Button with Lines -->
+            <div class="swap-container">
+                <div class="line-left"></div>
+                <button id="swap-currencies" class="swap-btn">
+                    <div class="swap-btn-inner">
+                        <div class="swap-btn-arrow up">↑</div>
+                        <div class="swap-btn-arrow down">↓</div>
+                    </div>
+                </button>
+                <div class="line-right"></div>
+            </div>
 
             <!-- Converted Amount Section -->
             <div class="input-section">
@@ -80,8 +80,8 @@
             <p class="rate-label">Indicative Exchange Rate</p>
             <p id="rate-info" class="rate-value">1 SGD = 0.7367 USD</p>
         </div>
-        <script src="js/script.js"></script>
-
     </div>
-    </body>
+    
+    <script src="js/script.js"></script>
+</body>
 </html>
